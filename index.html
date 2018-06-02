@@ -1,72 +1,93 @@
 <head>
+    <meta charset="UTF-8">
     <title>Pokemon Battle Game</title>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
+
     <div class="container">
         <div class="rows text-center">
-            <img class="header img-fluid" src="./assets/images/International_Pokémon_logo.svg.png">
+            <div class="col-md-12">
+                <img class="headerpic" src="./assets/images/International_Pokémon_logo.svg.png">
+                <h1>Battle Game</h1>
+            </div>
         </div>
+        <!-- This is where all directions and messages will appear -->
         <div class="rows text-center">
-            <h1>Battle Game</h1>
-        </div>
-        <div class="row text-center">
             <div class="col-md-1"></div>
-            <div class="col-md-10">
-                <div id="message">
-                    Choose your partner Pokemon!
-                </div>
+            <div class="col-md-10" id="gameStatus">
+                <h3>Messages Will Go Here</h3>
             </div>
             <div class="col-md-1"></div>
         </div>
-
+        <!-- This is where Pokemon will initially render -->
         <div class="rows text-center">
-            <div class="col-md-12">
-                <div id="initialList">characters will populate here</div>
-            </div>
-        </div>
-
-        <div class="rows text-center">
-            <div class="col-md-12">
-                <div id="opponentsList">opponents will move here</div>
-            </div>
+            <div class="card-deck" id="initalPokemon"></div>
         </div>
 
         <div class="rows text-center">
             <div class="col-md-12">
-                <h4>Battle Zone!</h4>
+                <h5>Your Partner Pokemon</h5>
             </div>
         </div>
-        <div class="container">
-            <div class="rows text-center">
-                <div class="col-md-12">
-                    <h5> Your Pokemon!</h5>
-                    <div id="yourCharacter">
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <button class="btn btn-warning" id="attackButton"> Attack!</button>
-                </div>
-                <div class="col-md-12">
-                    <h5> Your Opponent</h5>
-                    <div id="currentChallenger">
-                    </div>
-                </div>
+        <!-- Here is where the players choice will render -->
+        <div class="rows text-center">
+            <div class="col-md-12 pokemonPartner">
             </div>
         </div>
+
+        <div class="rows text-center">
+            <div class="col-md-12">
+                <h5>Battle Area</h5>
+            </div>
+        </div>
+        <!-- This is the attack button -->
+        <div class="rows text-center">
+            <div class="col-md-12">
+                <button type="button" class="btn btn-warning" id="attackButton">Attack</button>
+            </div>
+        </div>
+        <!-- This is where the first opponent will render -->
+        <div class="rows text-center">
+            <div class="col-md-12">
+                <h5>Challenger</h5>
+            </div>
+        </div>
+
+        <div class="rows text-center">
+            <div class="col-md-12 challengerPokemon">
+            </div>
+        </div>
+
+        <!-- This is where the non-chosen/rival pokemon will render -->
+        <div class="rows text-center">
+            <div class="col-md-12">
+                <h5>Rivals</h5>
+            </div>
+        </div>
+
+        <div class="rows text-center">
+            <div class="col-md-12 rivalPokemon">
+            </div>
+        </div>
+
+
+
     </div>
 
-    <script src="./assets/javascript/game.js"></script>
+
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
+    <script src="./assets/js/game.js" type="text/javascript"></script>
 </body>
+
+</html>

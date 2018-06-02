@@ -1,14 +1,13 @@
 body{
-    height: 100%;
+    height: 150%;
     background: #1e90ff;
     background: linear-gradient(to bottom right,#1e90ff, #90ee90);
 }
 
-.jumbotron{
-    height: 10px;
+.headerpic{
+    margin: auto;
 }
 
-#message{
+h3{
     background-color: white;
-    padding: 1%;
 }
