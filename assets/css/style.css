@@ -4,10 +4,15 @@ body{
     background: linear-gradient(to bottom right,#1e90ff, #90ee90);
 }
 
-.headerpic{
-    margin: auto;
+
+header{
+    text-align: center;
 }
 
-h3{
-    background-color: white;
+.card{
+    width: 125px;
+}
+
+#message{
+    font-style: bold;
 }
