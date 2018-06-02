@@ -10,52 +10,42 @@
 
 <body>
     <header>
-        <img src= "assets/images/PokemonLogo.png" class = "img-fluid">
+        <img src="assets/images/PokemonLogo.png" class="img-fluid">
     </header>
     <div class="container" id="mainFrame">
-        <div class = "row text-center">
-            <div class=  "col-md-3"></div>
-            <div class="col-6" id = "message">
-                    <p class="text-capitalize" id="gameStatus1"></p>
-                    <p class="text-capitalize" id="gameStatus2"></p>
-                </div>
-                <div class=  "col-md-3"></div>
-        </div>
-        <div class="row">
-            <div class="card-deck" id="initialPokemon">
-
+        <div class="row text-center">
+            <div class="col-md-3"></div>
+            <div class="col-6" id="message">
+                <p class="text-capitalize" id="gameStatus1"></p>
+                <p class="text-capitalize" id="gameStatus2"></p>
             </div>
+            <div class="col-md-3"></div>
         </div>
-        <div class="row">
-            <div class="row">
-                <div class="col-12">
+        <div class="row text-center">
+            <div class="col-md-12 card-deck" id="initialPokemon"></div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="row">
                     <h4>Partner Pokemon</h4>
                 </div>
-            </div>
-            <div class="w-100"></div>
-            <div class="row">
-                <div class="col-12" id="chosenPokemon">
-
+                <div class="row" id="chosenPokemon">
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
+
+            <div class="col-md-4">
+                <div class="row">
+                </div>
                 <div class="row">
                     <button type="button" class="btn btn-warning" id="attackButton">Attack</button>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
+
+            <div class="col-md-4">
                 <div class="row">
                     <h4>Challenger</h4>
                 </div>
-                <div class="w-100"></div>
-                <div class="row">
-                    <div class="card-deck" id="currentDefender">
-
-                    </div>
+                <div class="row" id="currentDefender">
                 </div>
             </div>
         </div>
@@ -73,10 +63,6 @@
             </div>
         </div>
     </div>
-
-
-
-
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
