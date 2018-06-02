@@ -1,5 +1,5 @@
 body{
-    height: 150%;
+    height: 165%;
     background: #1e90ff;
     background: linear-gradient(to bottom right,#1e90ff, #90ee90);
 }
@@ -16,3 +16,8 @@ header{
 #message{
     font-style: bold;
 }
+
+.row{
+    padding: 3px;
+}
+

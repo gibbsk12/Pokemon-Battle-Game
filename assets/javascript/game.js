@@ -1,6 +1,6 @@
-var characterChoice = $("#chosenCharacter");
+var characterChoice = $("#chosenPokemon");
 var enemies = $("#enemiesAvail");
-var restart = $("#startingPlace");
+var restart = $("#initialPokemon");
 var attack = $("#attackButton");
 var characterPicked = false;
 var enemyPicked = false;
@@ -41,6 +41,8 @@ var characters = {
     }
 }
 
+$("#gameStatus1").text("Pick a Pokemon to begin!");
+
 function renderOne(character, renderArea, makeChar) {
     var characterCard = $('<div class="card text-center" id="' + character.name + '" data-name="' + character.name + '">');
     var cardBody = $('<div class="card-body">');
@@ -63,14 +65,14 @@ function renderOne(character, renderArea, makeChar) {
 };
 
 function renderCharacters(charObj, areaRender) {
-    if (areaRender == '#startingPlace') {
+    if (areaRender == '#initialPokemon') {
         $(areaRender).empty();
         for (var key in charObj) {
             if (charObj.hasOwnProperty(key)) {
                 renderOne(charObj[key], areaRender, '');
             }
         }
-    } else if (areaRender == '#chosenCharacter') {
+    } else if (areaRender == '#chosenPokemon') {
         renderOne(charObj, areaRender, 'attacker');
     } else if (areaRender == '#enemiesAvail') {
         for (var i = 0; i < charObj.length; i++) {
@@ -81,9 +83,9 @@ function renderCharacters(charObj, areaRender) {
 };
 
 function chooseCharacter() {
-    $("#startingPlace").on("click", '.card', function () {
+    $("#initialPokemon").on("click", '.card', function () {
         var name = $(this).data('name');
-
+        $("#gameStatus1").text("Pick a rival to challenge!");
         if (characterPicked == false) {
             myAttacker = characters[name];
             console.log(myAttacker);
@@ -93,7 +95,7 @@ function chooseCharacter() {
                     enemies.push(characters[key]);
                 }
             }
-            renderCharacters(myAttacker, "#chosenCharacter");
+            renderCharacters(myAttacker, "#chosenPokemon");
             renderCharacters(enemies, "#enemiesAvail");
             restart.empty();
         }
@@ -121,8 +123,8 @@ function attackCharacter() {
                 $('#currentDefender').empty();
                 renderOne(currentOpponent, '#currentDefender', 'defender');
                 myAttacker.healthPoints -= currentOpponent.counterAttackPower;
-                $('#chosenCharacter').empty();
-                renderOne(myAttacker, '#chosenCharacter', 'attacker');
+                $('#chosenPokemon').empty();
+                renderOne(myAttacker, '#chosenPokemon', 'attacker');
                 var counterAttackMessage = currentOpponent.name + " attacked you back for " + currentOpponent.counterAttackPower + " damage.";
                 $("#gameStatus1").text(attackMessage);
                 $("#gameStatus2").text(counterAttackMessage);
@@ -135,13 +137,13 @@ function attackCharacter() {
                 }
             } else {
                 $('#currentDefender').empty();
-                var winMessage = "You have defeated " + currentOpponent.name + ", you can choose to fight another enemy.";
+                var winMessage = "You have defeated " + currentOpponent.name + ", pick another rival to challenge!";
                 $("#gameStatus1").text(winMessage);
                 $("#gameStatus2").empty();
                 enemyPicked = false;
                 killCount++;
                 if (killCount >= 3) {
-                    var winMessage = "Congratulations! You have defeated " + currentOpponent.name + ", the last of your opponents.";
+                    var winMessage = "Congratulations! You have defeated " + currentOpponent.name + ", the last of your challengers.";
                     $("#gameStatus1").text(winMessage);
                     setTimeout(startNewGame, 3000);
                 }
@@ -154,7 +156,7 @@ function attackCharacter() {
 
 $.when($.ready).then(function () {
 
-    renderCharacters(characters, '#startingPlace');
+    renderCharacters(characters, '#initialPokemon');
 
     chooseCharacter();
 
@@ -172,7 +174,7 @@ function startNewGame() {
     enemies = [];
     myAttacker = {};
     currentOpponent = {};
-    $("#chosenCharacter").empty();
+    $("#chosenPokemon").empty();
     $("#enemiesAvail").empty();
     $("#currentDefender").empty();
     $("#gameStatus1").empty();
@@ -209,7 +211,7 @@ function startNewGame() {
         }
     }
 
-    renderCharacters(characters, '#startingPlace');
+    renderCharacters(characters, '#initialPokemon');
 
     chooseCharacter();
 
