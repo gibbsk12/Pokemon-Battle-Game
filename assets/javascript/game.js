@@ -1,5 +1,5 @@
 var characterChoice = $("#chosenPokemon");
-var enemies = $("#enemiesAvail");
+var enemies = $("#rivalList");
 var restart = $("#initialPokemon");
 var attack = $("#attackButton");
 var characterPicked = false;
@@ -74,7 +74,7 @@ function renderCharacters(charObj, areaRender) {
         }
     } else if (areaRender == '#chosenPokemon') {
         renderOne(charObj, areaRender, 'attacker');
-    } else if (areaRender == '#enemiesAvail') {
+    } else if (areaRender == '#rivalList') {
         for (var i = 0; i < charObj.length; i++) {
             renderOne(charObj[i], areaRender, 'enemy');
         }
@@ -96,11 +96,11 @@ function chooseCharacter() {
                 }
             }
             renderCharacters(myAttacker, "#chosenPokemon");
-            renderCharacters(enemies, "#enemiesAvail");
+            renderCharacters(enemies, "#rivalList");
             restart.empty();
         }
     });
-    $("#enemiesAvail").on('click', '.enemy', function () {
+    $("#rivalList").on('click', '.enemy', function () {
         var name = $(this).data('name');
         if ($('#currentChallenger').children().length === 0) {
             $(this).appendTo("#currentChallenger");
@@ -176,7 +176,7 @@ function startNewGame() {
     myAttacker = {};
     currentOpponent = {};
     $("#chosenPokemon").empty();
-    $("#enemiesAvail").empty();
+    $("#rivalList").empty();
     $("#currentChallenger").empty();
     $("#gameStatus1").empty();
     $("#gameStatus2").empty();
