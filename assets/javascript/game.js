@@ -102,8 +102,8 @@ function chooseCharacter() {
     });
     $("#enemiesAvail").on('click', '.enemy', function () {
         var name = $(this).data('name');
-        if ($('#currentDefender').children().length === 0) {
-            $(this).appendTo("#currentDefender");
+        if ($('#currentChallenger').children().length === 0) {
+            $(this).appendTo("#currentChallenger");
             $(this).addClass("target-enemy");
             enemyPicked = true;
             currentOpponent = characters[name];
@@ -120,8 +120,8 @@ function attackCharacter() {
             var attackMessage = "You attacked " + currentOpponent.name + " for " + (myAttacker.attackPower * turnCounter) + " damage.";
 
             if (currentOpponent.healthPoints > 0) {
-                $('#currentDefender').empty();
-                renderOne(currentOpponent, '#currentDefender', 'defender');
+                $('#currentChallenger').empty();
+                renderOne(currentOpponent, '#currentChallenger', 'defender');
                 myAttacker.healthPoints -= currentOpponent.counterAttackPower;
                 $('#chosenPokemon').empty();
                 renderOne(myAttacker, '#chosenPokemon', 'attacker');
@@ -133,10 +133,10 @@ function attackCharacter() {
                     $("#gameStatus1").text(defeatMessage);
                     $("#gameStatus2").empty();
                     $(attack).unbind("click");
-                    setTimeout(startNewGame, 3000);
+                    setTimeout(startNewGame, 2000);
                 }
             } else {
-                $('#currentDefender').empty();
+                $('#currentChallenger').empty();
                 var winMessage = "You have defeated " + currentOpponent.name + ", pick another rival to challenge!";
                 $("#gameStatus1").text(winMessage);
                 $("#gameStatus2").empty();
@@ -145,7 +145,7 @@ function attackCharacter() {
                 if (killCount >= 3) {
                     var winMessage = "Congratulations! You have defeated " + currentOpponent.name + ", the last of your challengers.";
                     $("#gameStatus1").text(winMessage);
-                    setTimeout(startNewGame, 3000);
+                    setTimeout(startNewGame, 2000);
                 }
             }
             turnCounter++;
@@ -167,6 +167,7 @@ $.when($.ready).then(function () {
 });
 
 function startNewGame() {
+    $("#gameStatus1").text("Pick a Pokemon to begin!");
     characterPicked = false;
     enemyPicked = false;
     turnCounter = 1;
@@ -176,7 +177,7 @@ function startNewGame() {
     currentOpponent = {};
     $("#chosenPokemon").empty();
     $("#enemiesAvail").empty();
-    $("#currentDefender").empty();
+    $("#currentChallenger").empty();
     $("#gameStatus1").empty();
     $("#gameStatus2").empty();
 
