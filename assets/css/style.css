@@ -1,5 +1,5 @@
 body{
-    height: 135%;
+    height: 145%;
     background: #1e90ff;
     background: linear-gradient(to bottom right,#1e90ff, #90ee90);
 }
@@ -19,5 +19,9 @@ header{
 
 .row{
     padding: 3px;
+}
+
+.btn{
+    margin:auto;
 }
 
